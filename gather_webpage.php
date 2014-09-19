@@ -8,8 +8,8 @@
 		echo "something wrong! ";
 		var_dump(curl_error($curl));
 	} else {
-		$href = '/<a(.*)href=(.*)>(.*)<\/a>/'; //抓取链接
-		$img = '/<img(.*)src(.*)="(.*.jpg)"(.*)>/';
+		$href = '/<a(.*?)href=(.*?)>(.*?)<\/a>/'; //抓取链接
+		$img = '/<img(.*?)src(.*?)="(.*?.jpg)"(.*?)>/';
 		preg_match_all($href, $res, $matechs);
 		var_dump($matechs);
 	}
