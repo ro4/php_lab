@@ -8,10 +8,14 @@
 		echo "something wrong! ";
 		var_dump(curl_error($curl));
 	} else {
-		$href = '/<a(.*?)href=(.*?)>(.*?)<\/a>/'; //抓取链接
 		$img = '/<img(.*?)src(.*?)="(.*?.jpg)"(.*?)>/';
-		preg_match_all($href, $res, $matechs);
-		var_dump($matechs);
+		preg_match_all($img, $res, $matechs);
 	}
 	curl_close($curl);
+	foreach ($matechs[3] as $key => $value) {
+		$size = getimagesize($value);
+		if($size[0] > 150 and $size[1] > 150) {
+			echo '<img src="'.$value.'">';
+		}
+	}
 ?>
