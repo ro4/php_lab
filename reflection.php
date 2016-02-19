@@ -7,12 +7,12 @@ class Person{
 		echo $this->name.", $this->gender.\n";
 	}
 
-	public function _set($name, $value) {
+	public function __set($name, $value) {
 		echo "setting $name to $value\n";
 		$this->$name = $value;
 	}
 
-	public function _get($name) {
+	public function __get($name) {
 		if(!isset($this->$name)) {
 			echo "undefined";
 			$this->$name = "default";
